@@ -62,27 +62,26 @@ public:
 
 void Display(){
     calculator c;
-    double c1, c2;
+    int c1, c2;
     double a,b,p;
     char op;
     string t;
 
-    cout<<"                                   Follow the instruction"<<endl;
-    cout << "------------------------------------------------------------------------------------------------------------"<<endl;
-    cout << "|----------------------------------------------------------------------------------------------------------|"<<endl;
-    cout<<"||     For algebra -- press 0        |";cout<<"   For tangent -- press 1   |";cout<<"     For inverse tangent -- press 2    ||"<<endl;
-    cout<<"||# For SUMMATION -- press (a+b)     |";cout<<"# For sin(a) -- press (asin)|";cout<<"# For sin inverse (a) -- press (a sini)||"<<endl;
-    cout<<"||# For SUBSTRACTION -- press (a-b)  |";cout<<"# For cos(a) -- press (acos)|";cout<<"# For cos inverse (a) -- press (a cosi)||"<<endl;
-    cout<<"||# For MULTIPLICATION -- press (a*b)|";cout<<"# For tan(a) -- press (atan)|";cout<<"# For tan inverse (a) -- press (a tani)||"<<endl;
-    cout<<"||# For DIVITION -- press (a/b)      |";cout<<"                            |";cout<<"                                       ||"<<endl;
-    cout<<"||# For POWER -- press (a^b)         |";cout<<"                            |";cout<<"                                       ||"<<endl;
-    cout<<"||# For MODULAS -- press (a%b)       |";cout<<"                            |";cout<<"                                       ||"<<endl;
-    cout << "|----------------------------------------------------------------------------------------------------------|"<<endl;
-    cout << "------------------------------------------------------------------------------------------------------------"<<endl;
+    cout<<"                                   Follow the Instruction"<<endl<<endl
+          << "------------------------------------------------------------------------------------------------------------"<<endl
+       << "|----------------------------------------------------------------------------------------------------------|"<<endl
+        <<"||     For algebra -- press 0        |"     <<"   For tangent -- press 1   |"     <<"     For inverse tangent -- press 2    ||"<<endl
+        <<"||# For SUMMATION -- press (a+b)     |"     <<"# For sin(a) -- press (asin)|"     <<"# For sin inverse (a) -- press (a sini)||"<<endl
+        <<"||# For SUBSTRACTION -- press (a-b)  |"     <<"# For cos(a) -- press (acos)|"     <<"# For cos inverse (a) -- press (a cosi)||"<<endl
+        <<"||# For MULTIPLICATION -- press (a*b)|"     <<"# For tan(a) -- press (atan)|"     <<"# For tan inverse (a) -- press (a tani)||"<<endl
+        <<"||# For DIVITION -- press (a/b)      |"     <<"                            |"     <<"                                       ||"<<endl
+        <<"||# For POWER -- press (a^b)         |"     <<"                            |"     <<"                                       ||"<<endl
+        <<"||# For MODULAS -- press (a%b)       |"     <<"                            |"     <<"                                       ||"<<endl
+        << "|----------------------------------------------------------------------------------------------------------|"<<endl
+        << "------------------------------------------------------------------------------------------------------------"<<endl;
     start:
         cout<<"Enter Your choice: ";
         cin >> c1;
-        cout<<"Enter your operation"<<endl;
         if(c1 == 0){
             goto first;
         }
@@ -93,172 +92,153 @@ void Display(){
             goto third;
         }
         else{
+            cout<< "Wrong expression" <<endl;
             goto end;
         }
 
-    first:                      //first starts here
+                                                            //first starts here
+
+    first:
+        cout<<"Enter your operation"<<endl;
         cin >> a;
     first_reused:
         cin >> op;
-    if(op == '!'){
-        p = c.factorial(a);
-        cout << "= "<< p << endl;
-    }
-    else if(op == '+'){
-        cin >> b;
-        p = c.summation(a,b);
-        cout << "="<< p << endl;
-    }
-    else if(op == '-'){
-        cin >> b;
-        p = c.substraction(a,b);
-        cout << "= "<< p << endl;
-    }
-    else if(op == '*'){
-        cin >> b;
-        p = c.multiplication(a,b);
-        cout << "= "<< p << endl;
-    }
-    else if(op == '/'){
-        cin >> b;
-        p = c.divition(a,b);
-        cout << "= "<< p << endl;
-    }
-    else if(op == '^'){
-        cin >> b;
-        p = c.power(a,b);
-        cout << "= "<< p << endl;
-    }
-    else if(op == '%'){
-        cin >> b;
-        p = c.modulas(a,b);
-        cout << "= "<< p << endl;
-    }
-    cout<<endl<<"To continue algebra -- press 0"<<endl;
-    cout<<"To continue tangent -- press 1"<<endl;
-    cout<<"To continue inverse tangent -- press 2"<<endl;
-    cout<<"To start new -- press 3"<<endl;
-    cout<<"To quit -- press 4"<<endl;
+        if(op == '!'){
+            p = c.factorial(a);
+            cout << "Ans = "<< p << endl;
+        }
+        else if(op == '+'){
+            cin >> b;
+            p = c.summation(a,b);
+            cout << "Ans = "<< p << endl;
+        }
+        else if(op == '-'){
+            cin >> b;
+            p = c.substraction(a,b);
+            cout << "Ans = "<< p << endl;
+        }
+        else if(op == '*'){
+            cin >> b;
+            p = c.multiplication(a,b);
+            cout << "Ans = "<< p << endl;
+        }
+        else if(op == '/'){
+            cin >> b;
+            p = c.divition(a,b);
+            cout << "Ans = "<< p << endl;
+        }
+        else if(op == '^'){
+            cin >> b;
+            p = c.power(a,b);
+            cout << "Ans = "<< p << endl;
+        }
+        else if(op == '%'){
+            cin >> b;
+            p = c.modulas(a,b);
+            cout << "Ans = "<< p << endl;
+        }
+        else{
+            p = 0;
+            cout<< "Wrong expression" <<endl;
+            goto end;
+        }
+
+    reused_option:
+    cout<<endl<<"To continue algebra -- press 0"<<endl
+    <<"To continue tangent -- press 1"<<endl
+    <<"To continue inverse tangent -- press 2"<<endl
+    <<"To start new -- press 3"<<endl
+    <<"To quit -- press 4"<<endl;
 
     cin>> c2;
-    if(c2 == 0){
-        a = p;
-        cout << "Ans ";
-        goto first_reused;
-    }
-    else if(c2 == 1){
-        a = p;
-        cout << "Ans ";
-        goto second_reused;
-    }
-    else if(c2 == 2){
-        a = p;
-        cout << "Ans ";
-        goto third_reused;
-    }
-    else if(c2 == 3){
-        p = 0;
-        goto start;
-    }
-    else {
-        p = 0;
+    choice_condition:
+        if(c2<=4 && c2>=0){
+            if(c2 == 0){
+            a = p;
+            cout << "Ans ";
+            goto first_reused;
+            }
+            else if(c2 == 1){
+                a = p;
+                cout << "Ans ";
+                goto second_reused;
+            }
+            else if(c2 == 2){
+                a = p;
+                cout << "Ans ";
+                goto third_reused;
+            }
+            else if(c2 == 3){
+                p = 0;
+                goto start;
+            }
+            else if(c2 == 4){
+                p = 0;
+                goto end;
+            }
+        }
+        else{
+        cout<< "Wrong expression" <<endl;
         goto end;
     }
-    second:                             //Second starts here
+
+                                //Second starts here
+
+    second:
+    cout<<"Enter your operation"<<endl;
     cin >> a;
     second_reused:
     cin >> t;
     if(t == "sin"){
-        p = c.SIN(a);
-        cout << "= "<< p << endl;
+        p==p? cout << "= "<< p << endl:
+          cout << "Math Error" << endl;
     }
     else if(t == "cos"){
         p = c.COS(a);
-        cout << "= "<< p << endl;
+        p==p? cout << "= "<< p << endl:
+          cout << "Math Error" << endl;
     }
     else if(t == "tan"){
         p = c.TAN(a);
-        cout << "= "<< p << endl;
+        p==p? cout << "= "<< p << endl:
+          cout << "Math Error" << endl;
     }
-
-    cout<<endl<<"To continue algebra -- press 0"<<endl;
-    cout<<"To continue tangent -- press 1"<<endl;
-    cout<<"To continue inverse tangent -- press 2"<<endl;
-    cout<<"To start new -- press 3"<<endl;
-    cout<<"To quit -- press 4"<<endl;
-
-    cin>> c2;
-  if(c2 == 0){
-        a = p;
-        cout << "Ans ";
-        goto first_reused;
-    }
-    else if(c2 == 1){
-        a = p;
-        cout << "Ans ";
-        goto second_reused;
-    }
-    else if(c2 == 2){
-        a = p;
-        cout << "Ans ";
-        goto third_reused;
-    }
-    else if(c2 == 3){
-        p = 0;
-        goto start;
-    }
-    else {
-        p = 0;
+    else{
+        cout<< "Wrong expression" <<endl;
         goto end;
     }
+    goto reused_option;
+
+
                 //Third  starts here
 
     third:
+    cout<<"Enter your operation"<<endl;
     cin >> a;
     third_reused:
     cin >> t;
     if(t == "sini"){
         p = c.ASIN(a);
-        cout << "= "<< p << endl;
+        p==p? cout << "= "<< p << endl:
+          cout << "Math Error" << endl;
     }
     else if(t == "cosi"){
         p = c.ACOS(a);
-        cout << "= "<< p << endl;
+        p==p? cout << "= "<< p << endl:
+          cout << "Math Error" << endl;
     }
     else if(t == "tani"){
         p = c.ATAN(a);
-        cout << "= "<< p << endl;
+        p==p? cout << "= "<< p << endl:
+          cout << "Math Error" << endl;
     }
-    cout<<endl<<"To continue algebra -- press 0"<<endl; //change these lines into cout
-    cout<<"To continue tangent -- press 1"<<endl;
-    cout<<"To continue inverse tangent -- press 2"<<endl;
-    cout<<"To start new -- press 3"<<endl;
-    cout<<"To quit -- press 4"<<endl;
-
-    cin>> c2;
-    if(c2 == 0){
-        a = p;
-        cout << "Ans ";
-        goto first_reused;
-    }
-    else if(c2 == 1){
-        a = p;
-        cout << "Ans ";
-        goto second_reused;
-    }
-    else if(c2 == 2){
-        a = p;
-        cout << "Ans ";
-        goto third_reused;
-    }
-    else if(c2 == 3){
-        p = 0;
-        goto start;
-    }
-    else {
-        p = 0;
+    else{
+        cout<< "Wrong expression" <<endl;
         goto end;
     }
+
+    goto reused_option;
+
     end:
     cout <<endl<< "Thanks For Using! " << endl;
 }
